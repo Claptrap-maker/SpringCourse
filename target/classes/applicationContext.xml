@@ -12,10 +12,12 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="ru.alishev.springcourse.MusicPlayer">
+          class="ru.alishev.springcourse.MusicPlayer"
+          scope="prototype">
+
         <property name="music" ref="musicBean"/>
         <property name="name" value="Some name"/>
-        <property name="volume" value="50"/>
+        <property name="volume" value="70"/>
     </bean>
 
 </beans>
