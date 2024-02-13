@@ -8,16 +8,19 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="musicBean"
-          class="ru.alishev.springcourse.ClassicalMusic">
+          class="ru.alishev.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="ru.alishev.springcourse.MusicPlayer"
-          scope="prototype">
+<!--    <bean id="musicPlayer"-->
+<!--          class="ru.alishev.springcourse.MusicPlayer"-->
+<!--          scope="prototype">-->
 
-        <property name="music" ref="musicBean"/>
-        <property name="name" value="Some name"/>
-        <property name="volume" value="70"/>
-    </bean>
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="name" value="Some name"/>-->
+<!--        <property name="volume" value="70"/>-->
+<!--    </bean>-->
 
 </beans>
