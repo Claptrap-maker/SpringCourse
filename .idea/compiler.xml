@@ -9,5 +9,6 @@
         <module name="springapp1" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="18" />
   </component>
 </project>
