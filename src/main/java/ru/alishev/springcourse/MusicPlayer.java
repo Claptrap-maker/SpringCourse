@@ -2,16 +2,19 @@ package ru.alishev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 @Component
 public class MusicPlayer {
-//    @Autowired
-//    @Qualifier("classicalMusic")
-//    private Music music;
 
+    @Value("${musicPlayer.name}")
+    private String name;
+
+    @Value("${musicPlayer.volume}")
+    private int volume;
     private Music music1;
     private Music music2;
 
@@ -21,15 +24,23 @@ public class MusicPlayer {
         this.music2 = music2;
     }
 
-    public void playMusic(Genre genre) {
-        Random random = new Random();
+    public String getName() {
+        return name;
+    }
 
-        int randomNumber = random.nextInt(3);
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        if (genre == Genre.CLASSICAL)
-            System.out.println("Playing: " + music2.getSong().get(randomNumber));
-        else {
-            System.out.println("Playing: " + music1.getSong().get(randomNumber));
-        }
+    public int getVolume() {
+        return volume;
+    }
+
+    public void setVolume(int volume) {
+        this.volume = volume;
+    }
+
+    public void playMusic() {
+        System.out.println("Playing: " + music1.getSong() + ", " + music2.getSong());
     }
 }
